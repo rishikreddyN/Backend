@@ -2,9 +2,7 @@ import express from "express"
 import {main} from "./db/index.js" 
 import dotenv from "dotenv"
 import  Mongoose  from "mongoose"
-dotenv.config({
-    path:"../.env"
-})
+dotenv.config()
 const app=express()
 
 main()

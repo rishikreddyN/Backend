@@ -16,4 +16,6 @@ app.use(e.urlencoded({extended:true}))
 
 app.use(e.static("public"))
 
+import userRouter from "./routes/user.routes.js"
+app.use("/api/v1/users",userRouter);
 export {app}
