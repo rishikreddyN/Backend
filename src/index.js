@@ -5,7 +5,6 @@ import  Mongoose  from "mongoose"
 import {app} from "./app.js"
 dotenv.config()
 
-// console.log("INDEX.JS IS RUNNING");
 main()
 .then(
     ()=>{

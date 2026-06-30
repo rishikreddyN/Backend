@@ -16,6 +16,9 @@ app.use(e.urlencoded({extended:true}))
 
 app.use(e.static("public"))
 
-import userRouter from "./routes/user.routes.js"
+app.get("/", (req, res) => {
+    res.send("Hello from Express");
+});
+import {userRouter} from "./routes/user.routes.js"
 app.use("/api/v1/users",userRouter);
 export {app}

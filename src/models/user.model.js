@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose,{Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 import bcrypt, { hash } from "bcrypt"
 import jwt from "jsonwebtoken";
@@ -34,7 +34,7 @@ const userSchema=new mongoose.Schema({
     wathHistory:[
 
         {
-            type:Schema.types.ObjectId,
+            type:Schema.Types.ObjectId,
             ref:"Video"
         }
     ],
@@ -51,10 +51,10 @@ const userSchema=new mongoose.Schema({
 },{timestamps:true})
 
 
-userSchema.pre("save",async function(next){
+userSchema.pre("save",async function(){
     if(!this.isModified("password"))return next();
     this.password= await bcrypt.hash(this.password,10)
-    next()
+    
 } )
 
 userSchema.methods.isPasswordCorrect=async function(password){

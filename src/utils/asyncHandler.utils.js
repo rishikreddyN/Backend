@@ -1,10 +1,10 @@
-export const asyncHandler=(fn)=>async(req,res,next)=>{
+export const asyncHandler=(fn)=>async(req,res)=>{
     try{
-        await fn(req,res,next);
+        await fn(req,res);
     }catch(error){  
-        res.status(error.code || 500).json({
+        res.status(error.statusCode || 500).json({
             success:false,
-            message:err.message
+            message:error.message
         })
     }
 }
